@@ -14,7 +14,7 @@ class HomeView extends GetView<HomeController> {
     Get.put(HomeController());
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white54,
       appBar: AppBar(
         title: _customText("RoboFriends", ResponsiveUI().fontSize(5.5),
             Colors.white, FontWeight.bold),
@@ -213,8 +213,8 @@ class HomeView extends GetView<HomeController> {
       children: [
         _columnWithImage(index),
         Positioned(
-          top: ResponsiveUI().height(1),
-          right: ResponsiveUI().width(2),
+          top: ResponsiveUI().height(0.5),
+          right: ResponsiveUI().width(1.5),
           child: _favButtonView(index),
         ),
       ],
@@ -229,7 +229,7 @@ class HomeView extends GetView<HomeController> {
       },
       child: Icon(
         fav ? Icons.favorite : Icons.favorite_border_sharp,
-        size: ResponsiveUI().width(6),
+        size: ResponsiveUI().width(6.5),
         color: fav ? Colors.orangeAccent : Colors.orangeAccent,
       ),
     );
@@ -248,8 +248,27 @@ class HomeView extends GetView<HomeController> {
           child: CachedNetworkImage(
             imageUrl:
                 "https://robohash.org/${controller.usersFilter[index].id}?200x200",
-            placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            fit: BoxFit.contain,
+            imageBuilder: (context, imageProvider) => Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            placeholder: (context, url) => Center(
+              child: CircularProgressIndicator(
+                color: Colors.orangeAccent,
+              ),
+            ),
+            errorWidget: (context, url, error) => Center(
+              child: Icon(
+                Icons.warning_amber_sharp,
+                size: ResponsiveUI().width(15),
+                color: Colors.redAccent,
+              ),
+            ),
           ),
         ),
         SizedBox(
