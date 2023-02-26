@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:robofriends/app/data/api/sample_api.dart';
 import 'package:robofriends/app/data/model/user_model.dart';
 
+import '../../../helper/connectivity_helper.dart';
 import '../../../helper/easy_loading_helper.dart';
 import '../../../helper/snackbar_helper.dart';
 
@@ -32,8 +33,22 @@ class HomeController extends GetxController {
   }
 
   _fetchUsers() async {
+    bool isOnline = await ConnectivityHelper.isConnected();
+    print("isOnline $isOnline");
+    if (!isOnline) {
+      init.value = true;
+      print("isOnline1 $isOnline");
+      SnackbarHelper.showError(
+          "No Internet",
+          "Please check your Internet Connection and try again.",
+          "Close",
+          true,
+          () {});
+      return;
+    }
     var response = await SampleApi.getUsers(onTry: () {});
     init.value = true;
+    print("response $response");
     if (response != null &&
         response.error != null &&
         response.error!.isNotEmpty) {

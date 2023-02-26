@@ -55,7 +55,7 @@ class HomeView extends GetView<HomeController> {
               ),
             ],
           )
-        : _noDataView());
+        : Container());
   }
 
   _searchView() {
@@ -127,7 +127,7 @@ class HomeView extends GetView<HomeController> {
         "No data found.",
         style: TextStyle(
           color: Colors.black87,
-          fontSize: ResponsiveUI().fontSize(3.9),
+          fontSize: ResponsiveUI().fontSize(4.2),
           fontWeight: FontWeight.w500,
           letterSpacing: 1.2,
           overflow: TextOverflow.visible,
