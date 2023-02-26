@@ -26,3 +26,5 @@ doc/api/
 android/robofriends_android.iml
 .idea/libraries/Flutter_Plugins.xml
 android/robofriends_android.iml
+.idea/libraries/Dart_Packages.xml
+.flutter-plugins
