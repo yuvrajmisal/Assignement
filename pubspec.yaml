@@ -1,0 +1,50 @@
+name: robofriends
+description: A new Flutter assignment.
+
+version: 1.0.0+1
+
+publish_to: none
+
+environment:
+  sdk: '>=2.17.6 <3.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.5
+
+  get: 4.6.5
+  get_storage: ^2.0.3
+
+  http: ^0.13.4
+  # It will check network connection for internet access
+  connectivity_wrapper: ^1.0.6
+  #Loader indicator
+  flutter_easyloading: ^3.0.5
+
+  intl: ^0.17.0
+
+  #load images lazily and cache
+  cached_network_image: ^3.2.1
+
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+#  mockito: ^5.0.13
+#  integration_test:
+#    sdk: flutter
+#  flutter_driver:
+#    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+#  assets:
+#    - assets/images/
+
+#  fonts:
+#    - family: FS Alvar
+#      fonts:
+#        - asset: assets/fonts/FSAlvar.ttf
