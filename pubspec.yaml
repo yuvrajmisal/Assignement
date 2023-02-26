@@ -25,6 +25,9 @@ dependencies:
   #load images lazily and cache
   cached_network_image: ^3.2.1
 
+  # pull to refresh
+  pull_to_refresh: ^2.0.0
+
   flutter:
     sdk: flutter
 

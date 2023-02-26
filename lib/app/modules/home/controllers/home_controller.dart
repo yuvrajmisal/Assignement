@@ -19,7 +19,7 @@ class HomeController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    await _fetchUsers();
+    await fetchUsers();
   }
 
   @override
@@ -32,7 +32,7 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  _fetchUsers() async {
+  Future<void> fetchUsers() async {
     bool isOnline = await ConnectivityHelper.isConnected();
     print("isOnline $isOnline");
     if (!isOnline) {

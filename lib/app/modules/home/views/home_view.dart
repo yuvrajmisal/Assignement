@@ -122,44 +122,58 @@ class HomeView extends GetView<HomeController> {
   }
 
   _noDataView() {
-    return Center(
-      child: Text(
-        "No data found.",
-        style: TextStyle(
-          color: Colors.black87,
-          fontSize: ResponsiveUI().fontSize(4.2),
-          fontWeight: FontWeight.w500,
-          letterSpacing: 1.2,
-          overflow: TextOverflow.visible,
+    return RefreshIndicator(
+      onRefresh: controller.fetchUsers,
+      child: Container(
+        height: Get.height,
+        child: SingleChildScrollView(
+          child: Container(
+            height: Get.height,
+            child: Center(
+              child: Text(
+                "No data found.",
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: ResponsiveUI().fontSize(4.2),
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1.2,
+                  overflow: TextOverflow.visible,
+                ),
+                maxLines: 3,
+                softWrap: true,
+              ),
+            ),
+          ),
         ),
-        maxLines: 3,
-        softWrap: true,
       ),
     );
   }
 
   _gridView() {
-    return GridView.builder(
-      padding: EdgeInsets.zero,
-      scrollDirection: Axis.vertical,
-      // cacheExtent: 0.1,
-      physics: BouncingScrollPhysics(),
-      shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        childAspectRatio: 2 / 2, //2 / 2,
-        crossAxisSpacing: ResponsiveUI().height(0.5),
-        mainAxisSpacing: ResponsiveUI().height(4),
-        maxCrossAxisExtent: ResponsiveUI().height(29),
+    return RefreshIndicator(
+      onRefresh: controller.fetchUsers,
+      child: GridView.builder(
+        padding: EdgeInsets.zero,
+        scrollDirection: Axis.vertical,
+        // cacheExtent: 0.1,
+        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          childAspectRatio: 2 / 2, //2 / 2,
+          crossAxisSpacing: ResponsiveUI().height(0.5),
+          mainAxisSpacing: ResponsiveUI().height(4),
+          maxCrossAxisExtent: ResponsiveUI().height(29),
+        ),
+        // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //   crossAxisCount: 2,
+        //   crossAxisSpacing: ResponsiveUI().height(0.5),
+        //   mainAxisSpacing: ResponsiveUI().height(3),
+        // ),
+        itemCount: controller.usersFilter.length,
+        itemBuilder: (BuildContext ctx, index) {
+          return _gridRow(index);
+        },
       ),
-      // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      //   crossAxisCount: 2,
-      //   crossAxisSpacing: ResponsiveUI().height(0.5),
-      //   mainAxisSpacing: ResponsiveUI().height(3),
-      // ),
-      itemCount: controller.usersFilter.length,
-      itemBuilder: (BuildContext ctx, index) {
-        return _gridRow(index);
-      },
     );
   }
 
