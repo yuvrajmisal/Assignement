@@ -24,7 +24,7 @@ class SnackbarHelper {
         title,
         style: TextStyle(
           color: Colors.white,
-          fontSize: ResponsiveUI().fontSize(4),
+          fontSize: ResponsiveUI().fontSize(5),
           fontWeight: FontWeight.bold,
           letterSpacing: 1.2,
           overflow: TextOverflow.visible,
@@ -33,10 +33,10 @@ class SnackbarHelper {
         softWrap: true,
       ),
       messageText: Text(
-        title,
+        message,
         style: TextStyle(
           color: Colors.white,
-          fontSize: ResponsiveUI().fontSize(3.7),
+          fontSize: ResponsiveUI().fontSize(4.2),
           fontWeight: FontWeight.w400,
           letterSpacing: 1.2,
           overflow: TextOverflow.visible,
@@ -91,7 +91,7 @@ class SnackbarHelper {
         title,
         style: TextStyle(
           color: Colors.white,
-          fontSize: ResponsiveUI().fontSize(4),
+          fontSize: ResponsiveUI().fontSize(5),
           fontWeight: FontWeight.bold,
           letterSpacing: 1.2,
           overflow: TextOverflow.visible,
@@ -100,10 +100,10 @@ class SnackbarHelper {
         softWrap: true,
       ),
       messageText: Text(
-        title,
+        message,
         style: TextStyle(
           color: Colors.white,
-          fontSize: ResponsiveUI().fontSize(3.7),
+          fontSize: ResponsiveUI().fontSize(4.2),
           fontWeight: FontWeight.w400,
           letterSpacing: 1.2,
           overflow: TextOverflow.visible,
